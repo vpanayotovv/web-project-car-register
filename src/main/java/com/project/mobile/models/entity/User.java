@@ -1,14 +1,11 @@
-package com.project.mobile.data.entity;
+package com.project.mobile.models.entity;
 
-import com.project.mobile.data.entity.enums.Role;
+import com.project.mobile.models.entity.enums.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -18,6 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class User extends BaseEntity {
 
+    @Column(nullable = false,unique = true)
     private String username;
 
     private String firstName;

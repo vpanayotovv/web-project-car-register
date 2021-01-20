@@ -1,4 +1,4 @@
-package com.project.mobile.data.entity;
+package com.project.mobile.models.entity;
 
 import lombok.*;
 

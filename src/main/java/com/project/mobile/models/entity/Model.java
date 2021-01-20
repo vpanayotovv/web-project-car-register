@@ -1,6 +1,6 @@
-package com.project.mobile.data.entity;
+package com.project.mobile.models.entity;
 
-import com.project.mobile.data.entity.enums.Category;
+import com.project.mobile.models.entity.enums.Category;
 import lombok.*;
 
 import javax.persistence.*;

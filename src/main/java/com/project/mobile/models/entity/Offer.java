@@ -1,7 +1,7 @@
-package com.project.mobile.data.entity;
+package com.project.mobile.models.entity;
 
-import com.project.mobile.data.entity.enums.Engine;
-import com.project.mobile.data.entity.enums.Transmission;
+import com.project.mobile.models.entity.enums.Engine;
+import com.project.mobile.models.entity.enums.Transmission;
 import lombok.*;
 
 import javax.persistence.*;
