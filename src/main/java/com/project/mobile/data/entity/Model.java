@@ -1,10 +1,7 @@
 package com.project.mobile.data.entity;
 
 import com.project.mobile.data.entity.enums.Category;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -14,6 +11,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Model extends BaseEntity {
 
     @Column(unique = true, nullable = false)
