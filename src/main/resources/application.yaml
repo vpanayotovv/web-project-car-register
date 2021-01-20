@@ -13,3 +13,15 @@ spring:
     properties:
       hibernate:
         format_sql: true
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: info, health, httptrace, metrics, threaddump, heapdump, shutdown,
+          beans
+  trace:
+    http:
+      enabled: true

@@ -1,13 +1,15 @@
 package com.project.mobile.data.entity;
 
+import com.project.mobile.data.entity.enums.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.FetchType;
 import javax.persistence.Table;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -26,7 +28,7 @@ public class User extends BaseEntity {
 
     private String imageUrl;
 
-    @OneToMany
-    private List<UserRole> roles;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
 }
