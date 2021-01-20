@@ -1,6 +1,5 @@
 spring:
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
     # Put here your user name
     username: vasko
     # Put here your password
