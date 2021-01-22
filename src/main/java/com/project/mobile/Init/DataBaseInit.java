@@ -5,10 +5,10 @@ import com.project.mobile.models.entity.Model;
 import com.project.mobile.models.entity.enums.Category;
 import com.project.mobile.repository.BrandRepository;
 import com.project.mobile.repository.ModelRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
 import java.time.Instant;
 
 @Component
@@ -17,14 +17,13 @@ public class DataBaseInit implements CommandLineRunner {
     private final BrandRepository brandRepository;
     private final ModelRepository modelRepository;
 
+    @Autowired
     public DataBaseInit(BrandRepository brandRepository, ModelRepository modelRepository) {
         this.brandRepository = brandRepository;
         this.modelRepository = modelRepository;
     }
-
-    @Transactional
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args){
         Brand brand = addBrand();
 
         addModel(brand);
