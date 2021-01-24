@@ -1,8 +1,9 @@
-package com.project.mobile.service;
+package com.project.mobile.service.impl;
 
 import com.project.mobile.models.entity.User;
 import com.project.mobile.models.entity.enums.Role;
 import com.project.mobile.repository.UserRepository;
+import com.project.mobile.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

@@ -1,18 +1,20 @@
-package com.project.mobile.service;
+package com.project.mobile.service.impl;
 
 import com.google.gson.Gson;
 import com.project.mobile.models.dto.ModelSeedDto;
 import com.project.mobile.models.entity.Brand;
 import com.project.mobile.models.entity.Constants;
 import com.project.mobile.models.entity.Model;
+import com.project.mobile.models.view.ModelViewModel;
 import com.project.mobile.repository.BrandRepository;
 import com.project.mobile.repository.ModelRepository;
+import com.project.mobile.service.ModelService;
 import com.project.mobile.util.CustomFileReader;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class ModelServiceImpl implements ModelService {
@@ -44,5 +46,10 @@ public class ModelServiceImpl implements ModelService {
             this.modelRepository.saveAndFlush(model);
         }
 
+    }
+
+    @Override
+    public List<Model> getModelsById(Long id) {
+       return this.modelRepository.findAllByBrandId(id);
     }
 }
