@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Getter
@@ -19,8 +19,8 @@ public class BaseEntity {
 
 
     @Column(nullable = false)
-    private Instant created;
+    private LocalDateTime created;
 
     @Column(nullable = false)
-    private Instant modified;
+    private LocalDateTime modified;
 }
