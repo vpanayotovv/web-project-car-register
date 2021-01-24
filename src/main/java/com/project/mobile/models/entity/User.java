@@ -1,6 +1,7 @@
 package com.project.mobile.models.entity;
 
 import com.project.mobile.models.entity.enums.Role;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class User extends BaseEntity {
 
     @Column(nullable = false,unique = true)
@@ -26,6 +28,7 @@ public class User extends BaseEntity {
 
     private String imageUrl;
 
+    @Enumerated(value = EnumType.STRING)
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
