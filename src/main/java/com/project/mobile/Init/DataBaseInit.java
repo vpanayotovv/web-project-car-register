@@ -39,8 +39,8 @@ public class DataBaseInit implements CommandLineRunner {
     public void run(String... args) throws FileNotFoundException {
 
         SAMPLE_USERS.forEach(userService::createUser);
-//        this.brandService.seedData();
-//        this.modelService.seedData();
+        this.brandService.seedData();
+        this.modelService.seedData();
 
     }
 }
