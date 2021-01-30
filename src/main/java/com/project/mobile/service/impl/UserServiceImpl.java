@@ -3,12 +3,14 @@ package com.project.mobile.service.impl;
 import com.project.mobile.models.entity.User;
 import com.project.mobile.models.entity.enums.Role;
 import com.project.mobile.repository.UserRepository;
+import com.project.mobile.security.CurrentUser;
 import com.project.mobile.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -16,11 +18,13 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CurrentUser currentUser;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, CurrentUser currentUser) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.currentUser = currentUser;
     }
 
     @Override
@@ -42,5 +46,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(long id) {
         return this.userRepository.findById(id).orElseThrow( () -> new IllegalArgumentException("User not found!"));
+    }
+
+    @Override
+    public boolean authenticate(String username, String password) {
+
+        Optional<User> user = this.userRepository.findByUsername(username);
+
+        return user.filter(user1 -> passwordEncoder.matches(password, user1.getPassword())).isPresent();
+    }
+
+    @Override
+    public void loginUser(String username) {
+        this.currentUser.setName(username);
+        this.currentUser.setAnonymous(false);
     }
 }

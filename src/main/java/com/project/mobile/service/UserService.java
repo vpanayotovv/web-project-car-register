@@ -9,4 +9,8 @@ public interface UserService {
     void createUser(User user);
 
     User getUserById(long id);
+
+    boolean authenticate(String username,String password);
+
+    void loginUser(String username);
 }
