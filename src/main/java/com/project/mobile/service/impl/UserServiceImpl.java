@@ -32,4 +32,9 @@ public class UserServiceImpl implements UserService {
         user.setActive(true);
         this.userRepository.saveAndFlush(user);
     }
+
+    @Override
+    public User getUserById(long id) {
+        return this.userRepository.findById(id).orElseThrow( () -> new IllegalArgumentException("User not found!"));
+    }
 }

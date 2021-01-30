@@ -21,4 +21,6 @@ public class ModelViewModel {
 
     private Integer endYear;
 
+    private BrandViewModel brand;
+
 }

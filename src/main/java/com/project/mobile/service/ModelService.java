@@ -12,4 +12,6 @@ public interface ModelService {
     void seedData() throws FileNotFoundException;
 
     List<Model> getModelsById(Long id);
+
+    Model getModelById(Long id);
 }

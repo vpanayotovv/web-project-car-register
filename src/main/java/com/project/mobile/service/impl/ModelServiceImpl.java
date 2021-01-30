@@ -5,7 +5,6 @@ import com.project.mobile.models.dto.ModelSeedDto;
 import com.project.mobile.models.entity.Brand;
 import com.project.mobile.models.entity.Constants;
 import com.project.mobile.models.entity.Model;
-import com.project.mobile.models.view.ModelViewModel;
 import com.project.mobile.repository.BrandRepository;
 import com.project.mobile.repository.ModelRepository;
 import com.project.mobile.service.ModelService;
@@ -51,5 +50,10 @@ public class ModelServiceImpl implements ModelService {
     @Override
     public List<Model> getModelsById(Long id) {
        return this.modelRepository.findAllByBrandId(id);
+    }
+
+    @Override
+    public Model getModelById(Long id) {
+       return this.modelRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Model not found!"));
     }
 }
