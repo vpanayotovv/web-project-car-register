@@ -74,8 +74,9 @@
                     <img th:src="${offer.imageUrl}" class="card-img-top" src="/" alt="Car image">
                 </div>
                 <div class="card-body pb-1">
-                    <h5 th:text="${offer.model.brand.name + ' ' + offer.model.name}" class="card-title">
-					Offer year Brand name Model name</h5>
+                    <h5 class="card-title">
+					Offer: <span th:text="${offer.model.brand.name}" ></span>
+                        <span th:text="${offer.model.name}" ></span></h5>
                 </div>
                 <ul class="offer-details list-group list-group-flush">
                     <li class="list-group-item">

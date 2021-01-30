@@ -4,6 +4,8 @@ import com.project.mobile.models.entity.User;
 import com.project.mobile.models.entity.enums.Role;
 import com.project.mobile.repository.UserRepository;
 import com.project.mobile.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -13,9 +15,12 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -30,6 +35,7 @@ public class UserServiceImpl implements UserService {
         }
 
         user.setActive(true);
+        user.setPassword(this.passwordEncoder.encode(user.getPassword()));
         this.userRepository.saveAndFlush(user);
     }
 

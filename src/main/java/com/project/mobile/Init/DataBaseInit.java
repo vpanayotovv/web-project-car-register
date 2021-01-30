@@ -39,8 +39,8 @@ public class DataBaseInit implements CommandLineRunner {
     }
 
     private static final List<User> SAMPLE_USERS = List.of(
-            new User("pesho", "Petur", "Petrov", true , "" , Set.of(Role.ADMIN,Role.USER)),
-            new User("ivan", "Ivan", "Simeonov", true, "" , Set.of(Role.USER))
+            new User("pesho", "taina","Petur", "Petrov", true , "" , Set.of(Role.ADMIN,Role.USER)),
+            new User("ivan", "taina", "Ivan", "Simeonov", true, "" , Set.of(Role.USER))
     );
 
     @Override
