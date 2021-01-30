@@ -1,7 +1,6 @@
 package com.project.mobile.web;
 
 import com.project.mobile.models.dto.UserLoginBindingModel;
-import com.project.mobile.security.CurrentUser;
 import com.project.mobile.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/users")
 public class LoginController {
 
-    private final CurrentUser currentUser;
     private final UserService userService;
 
-    public LoginController(CurrentUser currentUser, UserService userService) {
-        this.currentUser = currentUser;
+    public LoginController(UserService userService) {
         this.userService = userService;
     }
 
