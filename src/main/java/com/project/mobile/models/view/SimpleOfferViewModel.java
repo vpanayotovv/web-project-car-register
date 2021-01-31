@@ -13,6 +13,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class SimpleOfferViewModel {
 
+    private Long id;
+
     private Engine engine;
 
     private String imageUrl;
@@ -20,6 +22,8 @@ public class SimpleOfferViewModel {
     private Integer mileage;
 
     private BigDecimal price;
+
+    private Integer year;
 
     private Transmission transmission;
 

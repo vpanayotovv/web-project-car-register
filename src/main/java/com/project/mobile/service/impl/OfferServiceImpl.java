@@ -1,5 +1,6 @@
 package com.project.mobile.service.impl;
 
+import com.project.mobile.models.entity.Offer;
 import com.project.mobile.models.view.SimpleOfferViewModel;
 import com.project.mobile.repository.OfferRepository;
 import com.project.mobile.service.OfferService;
@@ -29,5 +30,10 @@ public class OfferServiceImpl implements OfferService {
            return this.modelMapper.map(offer,SimpleOfferViewModel.class);
         }).collect(Collectors.toList());
 
+    }
+
+    @Override
+    public Offer getOfferById(Long offerId) {
+       return this.offerRepository.findById(offerId).orElseThrow( () -> new IllegalArgumentException("Offer not exist!"));
     }
 }

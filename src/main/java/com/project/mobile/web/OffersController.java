@@ -4,6 +4,7 @@ import com.project.mobile.service.OfferService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -20,6 +21,12 @@ public class OffersController {
     public String getAllOffers(Model model){
         model.addAttribute("offers",this.offerService.getAllOffers());
         return "offers";
+    }
+
+    @GetMapping("/details/{offerId}")
+    public String getOfferDetails(@PathVariable("offerId") Long offerId, Model model) {
+        model.addAttribute("offer", offerService.getOfferById(offerId));
+        return "offer-details";
     }
 
 }
