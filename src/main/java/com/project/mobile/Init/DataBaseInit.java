@@ -39,33 +39,33 @@ public class DataBaseInit implements CommandLineRunner {
     }
 
     private static final List<User> SAMPLE_USERS = List.of(
-            new User("pesho", "taina","Petur", "Petrov", true , "" , Set.of(Role.ADMIN,Role.USER)),
-            new User("ivan", "taina", "Ivan", "Simeonov", true, "" , Set.of(Role.USER))
+            new User("pesho", "taina","Petur", "Petrov", true , "" , List.of(Role.ADMIN,Role.USER)),
+            new User("ivan", "taina", "Ivan", "Simeonov", true, "" , List.of(Role.USER))
     );
 
     @Override
     public void run(String... args) throws FileNotFoundException {
-    //        SAMPLE_USERS.forEach(userService::createUser);
-    //        this.brandService.seedData();
-    //        this.modelService.seedData();
-    //
-    //        Offer offer = new Offer("Mn dobra kola",Engine.DIESEL,"https://images.carandbike.com/bike-images/large/bmw/s-1000-rr/bmw-s-1000-rr.jpg?v=7",160000,new BigDecimal(8000), Transmission.AUTOMATIC,2006);
-    //        Offer offer2 = new Offer("Vsichko oblsujeno",Engine.ELECTRIC,"https://www.hushhush.com/wp-content/uploads/2019/01/2016-bmw-m3.jpg",160000,new BigDecimal(10000), Transmission.MANUAL,2008);
-    //
-    //        offer.setCreated(LocalDateTime.now());
-    //        offer.setModified(LocalDateTime.now());
-    //        offer.setModel(this.modelService.getModelById((long) 1));
-    //        offer.setSeller(this.userService.getUserById((long) 2));
-    //
-    //
-    //
-    //        offer2.setCreated(LocalDateTime.now());
-    //        offer2.setModified(LocalDateTime.now());
-    //        offer2.setModel(this.modelService.getModelById((long) 3));
-    //        offer2.setSeller(this.userService.getUserById((long) 1));
-    //
-    //        this.offerRepository.saveAndFlush(offer);
-    //        this.offerRepository.saveAndFlush(offer2);
+//            SAMPLE_USERS.forEach(userService::createUser);
+//            this.brandService.seedData();
+//            this.modelService.seedData();
+//
+//            Offer offer = new Offer("Mn dobra kola",Engine.DIESEL,"https://images.carandbike.com/bike-images/large/bmw/s-1000-rr/bmw-s-1000-rr.jpg?v=7",160000,new BigDecimal(8000), Transmission.AUTOMATIC,2006);
+//            Offer offer2 = new Offer("Vsichko oblsujeno",Engine.ELECTRIC,"https://www.hushhush.com/wp-content/uploads/2019/01/2016-bmw-m3.jpg",160000,new BigDecimal(10000), Transmission.MANUAL,2008);
+//
+//            offer.setCreated(LocalDateTime.now());
+//            offer.setModified(LocalDateTime.now());
+//            offer.setModel(this.modelService.getModelById((long) 1));
+//            offer.setSeller(this.userService.getUserById((long) 2));
+//
+//
+//
+//            offer2.setCreated(LocalDateTime.now());
+//            offer2.setModified(LocalDateTime.now());
+//            offer2.setModel(this.modelService.getModelById((long) 3));
+//            offer2.setSeller(this.userService.getUserById((long) 1));
+//
+//            this.offerRepository.saveAndFlush(offer);
+//            this.offerRepository.saveAndFlush(offer2);
 
     }
 }

@@ -10,8 +10,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -35,7 +36,7 @@ public class UserServiceImpl implements UserService {
         user.setCreated(LocalDateTime.now());
         user.setModified(LocalDateTime.now());
         if (user.getRoles() == null || user.getRoles().size() == 0) {
-            user.setRoles(Set.of(Role.USER));
+            user.setRoles(List.of(Role.USER));
         }
 
         user.setActive(true);
@@ -58,13 +59,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void loginUser(String username) {
-        this.currentUser.setName(username);
-        this.currentUser.setAnonymous(false);
+        User user = this.userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("User not found!"));
+
+        currentUser.setAnonymous(false);
+        currentUser.setName(user.getUsername());
+        currentUser.setUserRoles(user.getRoles());
     }
 
     @Override
     public void logoutUser() {
-        currentUser.setName("anonymous");
         currentUser.setAnonymous(true);
     }
 }
