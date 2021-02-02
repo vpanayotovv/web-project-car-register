@@ -17,6 +17,6 @@ public class CurrentUser {
     private String name = "anonymous";
 
 
-    private boolean isAnonymous;
+    private boolean isAnonymous = true;
 
 }
