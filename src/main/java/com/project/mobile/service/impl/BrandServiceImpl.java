@@ -28,16 +28,14 @@ public class BrandServiceImpl implements BrandService {
     private final BrandRepository brandRepository;
     private final ModelMapper modelMapper;
     private final ModelService modelService;
-    private final ModelRepository modelRepository;
 
     @Autowired
-    public BrandServiceImpl(CustomFileReader reader, Gson gson, BrandRepository brandRepository, ModelMapper modelMapper, ModelService modelService, ModelRepository modelRepository) {
+    public BrandServiceImpl(CustomFileReader reader, Gson gson, BrandRepository brandRepository, ModelMapper modelMapper, ModelService modelService) {
         this.reader = reader;
         this.gson = gson;
         this.brandRepository = brandRepository;
         this.modelMapper = modelMapper;
         this.modelService = modelService;
-        this.modelRepository = modelRepository;
     }
 
     @Override

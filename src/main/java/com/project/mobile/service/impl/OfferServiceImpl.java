@@ -1,7 +1,7 @@
 package com.project.mobile.service.impl;
 
 import com.project.mobile.models.entity.Offer;
-import com.project.mobile.models.view.SimpleOfferViewModel;
+import com.project.mobile.models.view.OfferViewModel;
 import com.project.mobile.repository.OfferRepository;
 import com.project.mobile.service.OfferService;
 import org.modelmapper.ModelMapper;
@@ -22,12 +22,12 @@ public class OfferServiceImpl implements OfferService {
     }
 
     @Override
-    public List<SimpleOfferViewModel> getAllOffers() {
+    public List<OfferViewModel> getAllOffers() {
 
 
         return this.offerRepository.findAll().stream().map(offer -> {
            offer.getModel().setBrand(offer.getModel().getBrand());
-           return this.modelMapper.map(offer,SimpleOfferViewModel.class);
+           return this.modelMapper.map(offer, OfferViewModel.class);
         }).collect(Collectors.toList());
 
     }

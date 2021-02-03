@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SimpleOfferViewModel {
+public class OfferViewModel {
 
     private Long id;
 
