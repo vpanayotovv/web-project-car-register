@@ -29,4 +29,9 @@ public class OffersController {
         return "offer-details";
     }
 
+    @GetMapping("/add")
+    public String addOffer(){
+        return "offer-add";
+    }
+
 }
