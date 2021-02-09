@@ -1,6 +1,5 @@
 package com.project.mobile.models.dto;
 
-import com.project.mobile.models.entity.enums.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
