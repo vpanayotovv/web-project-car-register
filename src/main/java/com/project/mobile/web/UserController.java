@@ -1,7 +1,9 @@
 package com.project.mobile.web;
 
 import com.project.mobile.models.dto.UserRegisterBindingModel;
+import com.project.mobile.models.entity.User;
 import com.project.mobile.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,9 +20,11 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
+    private final ModelMapper modelMapper;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ModelMapper modelMapper) {
         this.userService = userService;
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping("/register")
@@ -42,7 +46,8 @@ public class UserController {
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel",bindingResult);
             return "redirect:register";
         }
-        //TODO:add in db
+
+        this.userService.createUser(this.modelMapper.map(userRegisterBindingModel, User.class));
         return "redirect:login";
     }
 
