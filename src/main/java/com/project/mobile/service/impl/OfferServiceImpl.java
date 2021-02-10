@@ -58,4 +58,9 @@ public class OfferServiceImpl implements OfferService {
 
         this.offerRepository.saveAndFlush(offer);
     }
+
+    @Override
+    public void deleteOffer(long id) {
+        offerRepository.deleteById(id);
+    }
 }

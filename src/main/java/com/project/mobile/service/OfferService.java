@@ -12,4 +12,6 @@ public interface OfferService {
     Offer getOfferById(Long offerId);
 
     void addOffer(OfferAddBindingModel offerAddBindingModel);
+
+    void deleteOffer(long id);
 }

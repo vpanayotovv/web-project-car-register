@@ -67,4 +67,12 @@ public class OffersController {
 
         return "redirect:all";
     }
+
+    @DeleteMapping("/offer/{offerId}")
+    public String deleteOffer(@PathVariable("offerId") Long offerId) {
+
+        offerService.deleteOffer(offerId);
+
+        return "redirect:/offers/all";
+    }
 }
