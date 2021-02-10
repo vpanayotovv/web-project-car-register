@@ -70,4 +70,10 @@ public class UserServiceImpl implements UserService {
         currentUser.setAnonymous(true);
     }
 
+    @Override
+    public User getUserByName(String username) {
+
+       return this.userRepository.findByUsername(username).orElse(null);
+    }
+
 }

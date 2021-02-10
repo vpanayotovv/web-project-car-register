@@ -63,8 +63,7 @@ public class OffersController {
         }
 
 
-        //TODO:add to db
-        System.out.println();
+        this.offerService.addOffer(offerAddBindingModel);
 
         return "redirect:all";
     }

@@ -16,33 +16,33 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class OfferAddBindingModel {
 
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Description is required.")
+    @NotEmpty(message = "Description is required.")
     private String description;
 
-    @NotNull
+    @NotNull(message = "Engine is required.")
     private String engine;
 
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Url is required.")
+    @NotEmpty(message = "Url is required.")
     private String imageUrl;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "Mileage is required.")
+    @Positive(message = "Mileage must be positive.")
     private Integer mileage;
 
-    @NotNull
+    @NotNull(message = "Price is required.")
     @DecimalMin(value = "1000")
     private BigDecimal price;
 
-    @NotNull
+    @NotNull(message = "Transmission is required.")
     private String transmission;
 
-    @NotNull
+    @NotNull(message = "Year is required.")
     @ValidYearInterface(minYear = 1950)
     private Integer year;
 
-    @NotNull
+    @NotNull(message = "Transmission is required.")
     private String model;
 
 }

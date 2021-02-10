@@ -14,4 +14,6 @@ public interface ModelService {
     List<Model> getModelsById(Long id);
 
     Model getModelById(Long id);
+
+    Model getModelByName(String model);
 }

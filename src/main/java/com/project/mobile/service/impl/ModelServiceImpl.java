@@ -56,4 +56,10 @@ public class ModelServiceImpl implements ModelService {
     public Model getModelById(Long id) {
        return this.modelRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Model not found!"));
     }
+
+    @Override
+    public Model getModelByName(String model) {
+
+       return this.modelRepository.findByName(model);
+    }
 }
