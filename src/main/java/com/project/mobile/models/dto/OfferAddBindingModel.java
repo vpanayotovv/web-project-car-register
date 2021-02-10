@@ -17,14 +17,12 @@ import java.math.BigDecimal;
 public class OfferAddBindingModel {
 
     @NotNull(message = "Description is required.")
-    @NotEmpty(message = "Description is required.")
     private String description;
 
     @NotNull(message = "Engine is required.")
     private String engine;
 
     @NotNull(message = "Url is required.")
-    @NotEmpty(message = "Url is required.")
     private String imageUrl;
 
     @NotNull(message = "Mileage is required.")
