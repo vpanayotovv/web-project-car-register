@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Mobile</title>
-    <link rel="stylesheet" href="/css/reset-css.css"/>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
-    <script src="/js/jquery-3.5.1.slim.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-</head>
+<th:block th:include="~{fragments/head}" ></th:block>
 
 <body>
 
@@ -18,7 +10,9 @@
 
 <div class="container">
     <h2 class="text-center text-white">Upload Offer</h2>
-    <form method="POST" 
+    <form th:object="${offerAddBindingModel}"
+          th:action="@{/offers/add}"
+          method="POST"
           class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
         <div class="row">
 
@@ -26,8 +20,13 @@
                 <label class="text-center text-white font-weight-bold" for="model">Model</label>
                 <select id="model" class="form-control">
                     <option value="">- Select a model -</option>
-                    <optgroup label="Brand name">
-                        <option>Model</option>
+                    <optgroup th:each="brand : ${brands}"
+                              th:label="${brand.name}"
+                              label="Brand name">
+                        <option th:each="model :${brand.models}"
+                                th:value="${model.name}"
+                                th:text="${model.name}"
+                        >Model</option>
                     </optgroup>
                 </select>
                 <p class="errors alert alert-danger">
@@ -48,7 +47,10 @@
                 <label class="text-center text-white font-weight-bold" for="engine">Engine</label>
                 <select id="engine" class="form-control">
                     <option value="">- Select engine type -</option>
-                    <option>
+                    <option th:each="engine : ${engines}"
+                            th:value="${engine}"
+                            th:text="${#strings.capitalize(#strings.toLowerCase(engine))}"
+                    >
                         Engine type
                     </option>
                 </select>
@@ -60,7 +62,11 @@
                 <label class="text-center text-white font-weight-bold" for="transmission">Transmission</label>
                 <select id="transmission" class="form-control">
                     <option value="">- Select transmission type -</option>
-                    <option> Transmission type
+                    <option
+                            th:each="tr : ${transmissions}"
+                            th:value="${tr}"
+                            th:text="${#strings.capitalize(#strings.toLowerCase(tr))}"
+                    > Transmission type
                     </option>
                 </select>
                 <p class="errors alert alert-danger">

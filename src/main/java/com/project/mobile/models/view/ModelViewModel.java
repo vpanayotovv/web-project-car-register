@@ -11,6 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ModelViewModel {
 
+    private Long id;
+
     private String name;
 
     private String category;
