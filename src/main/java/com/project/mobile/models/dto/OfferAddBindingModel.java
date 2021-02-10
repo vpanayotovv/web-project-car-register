@@ -1,6 +1,6 @@
 package com.project.mobile.models.dto;
 
-import com.project.mobile.config.YearValidatorConstraint;
+import com.project.mobile.config.ValidYearInterface;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,7 +39,7 @@ public class OfferAddBindingModel {
     private String transmission;
 
     @NotNull
-    @YearValidatorConstraint(minYear = 1950)
+    @ValidYearInterface(minYear = 1950)
     private Integer year;
 
     @NotNull

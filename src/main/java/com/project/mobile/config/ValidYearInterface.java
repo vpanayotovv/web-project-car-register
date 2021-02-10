@@ -9,9 +9,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-@Constraint(validatedBy = YearValidator.class)
-public @interface YearValidatorConstraint {
-
+@Constraint(validatedBy = ValidYear.class)
+public @interface ValidYearInterface {
     String message() default "Invalid year";
 
     int minYear();
@@ -19,5 +18,4 @@ public @interface YearValidatorConstraint {
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
-
 }
