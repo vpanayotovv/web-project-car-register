@@ -55,14 +55,12 @@ public class OffersController {
                              BindingResult bindingResult,
                              RedirectAttributes redirectAttributes){
 
-        if (bindingResult.hasErrors()){
-            redirectAttributes.addFlashAttribute("offerAddBindingModel",offerAddBindingModel);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.offerAddBindingModel",bindingResult);
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("offerAddBindingModel", offerAddBindingModel);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.offerAddBindingModel", bindingResult);
 
             return "redirect:add";
         }
-
-
         this.offerService.addOffer(offerAddBindingModel);
 
         return "redirect:all";
